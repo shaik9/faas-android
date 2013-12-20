@@ -16,7 +16,8 @@ public class Faas extends Activity {
 
   public static void showFeedbackForm(Context context) {
     Intent intent = new Intent(context, Faas.class);
-    ((Activity) context).startActivity(intent);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    context.startActivity(intent);
   }
 
   @Override
