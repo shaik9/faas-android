@@ -2,8 +2,10 @@ package com.ehc.faas;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
-public class Faas {
+public class Faas extends Activity {
   static String apiKey;
   static String channelName;
 
@@ -12,8 +14,15 @@ public class Faas {
     Faas.channelName = channelName;
   }
 
-  public static void showFeedbackView(Context context) {
-    FeedbackView feedbackView = new FeedbackView(context);
-    ((Activity) (context)).setContentView(feedbackView);
+  public static void showFeedbackForm(Context context) {
+    Intent intent = new Intent(context, Faas.class);
+    ((Activity) context).startActivity(intent);
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    FeedbackView feedbackView = new FeedbackView(this);
+    setContentView(feedbackView);
   }
 }
