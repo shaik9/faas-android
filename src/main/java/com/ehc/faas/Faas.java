@@ -9,5 +9,4 @@ public class Faas {
     Faas.apiKey = apiKey;
     Faas.channelName = channelName;
   }
-
 }
