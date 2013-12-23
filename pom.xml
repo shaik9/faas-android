@@ -4,7 +4,7 @@
 
     <groupId>com.github.ehc.tools</groupId>
     <artifactId>faas</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Faas</name>
     <description>This is an android library project to integrate Feedback service.</description>
@@ -17,8 +17,8 @@
         </license>
     </licenses>
     <scm>
-        <url>https://github.com/ehc/faas-android/tags/faas-1.0.0</url>
-        <connection>scm:git:https://github.com/ehc/faas-android.git/tags/faas-1.0.0</connection>
+        <url>https://github.com/ehc/faas-android</url>
+        <connection>scm:git:https://github.com/ehc/faas-android.git</connection>
     </scm>
     <developers>
         <developer>
