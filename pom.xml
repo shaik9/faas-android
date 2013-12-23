@@ -29,6 +29,11 @@
             <email>developers@eggheadcreative.com</email>
         </developer>
     </developers>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -75,10 +80,10 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
+                <!--<configuration>-->
+                <!--<source>1.7</source>-->
+                <!--<target>1.7</target>-->
+                <!--</configuration>-->
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
