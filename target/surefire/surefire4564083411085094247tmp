@@ -1,0 +1,5 @@
+#surefire
+#Mon Dec 23 12:25:46 IST 2013
+user.dir=/home/ehc/Workspace/Faas
+localRepository=/home/ehc/.m2/repository
+basedir=/home/ehc/Workspace/Faas
