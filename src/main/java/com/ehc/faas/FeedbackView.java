@@ -313,6 +313,7 @@ public class FeedbackView extends ScrollView {
     alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int which) {
         new FeedbackAsyncTask().execute();
+        ((Activity) context).finish();
       }
     });
     alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -362,7 +363,8 @@ public class FeedbackView extends ScrollView {
   }
 
   private String getUrl() {
-    String url = "http://staging.faas.in/channels/" + Faas.channelName + "/feedback";
+    String channelName = Faas.channelName.trim().replaceAll(" ", "-");
+    String url = "http://staging.faas.in/channels/" + channelName + "/feedback";
     return url;
   }
 
