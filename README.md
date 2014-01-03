@@ -4,7 +4,7 @@ faas-android
 Faas-android is a library project which helps to integrate [FAAS](http://www.faas.in) service in any Android App.
 It provides basic feedback form to collect feedback from users.
 
-##How To Use?
+###How To Use?
 Using the library is really simple, just place [faas.jar]() in your project lib folder or include following artifact in your pom.xml
 
  ```
