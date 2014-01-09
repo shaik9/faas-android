@@ -362,7 +362,7 @@ public class FeedbackView extends ScrollView {
   }
 
   private String getUrl() {
-    String url = "http://staging.faas.in/channels/" + FAAS.channelName + "/feedback";
+    String url = "http://www.faas.in/channels/" + FAAS.channelName + "/feedback";
     return url;
   }
 
