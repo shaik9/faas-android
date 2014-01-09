@@ -249,10 +249,6 @@ public class FeedbackView extends ScrollView {
     return new OnClickListener() {
       @Override
       public void onClick(View view) {
-        if (FAAS.apiKey == null || FAAS.channelName == null || FAAS.apiKey.equals("") || FAAS.channelName.equals("")) {
-          showWarningMessage();
-          return;
-        }
         if (!suggestionEditText.getText().toString().isEmpty()) {
           comment = suggestionEditText.getText().toString();
         }
@@ -295,18 +291,7 @@ public class FeedbackView extends ScrollView {
     };
   }
 
-  private void showWarningMessage() {
-    AlertDialog.Builder warningDialog = new AlertDialog.Builder(context);
-    warningDialog.setMessage("Sorry! Couldn't find Api-key or Channel ");
-    warningDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int which) {
-        dialog.cancel();
-      }
-    });
-    warningDialog.show();
-  }
-
-  private void showAlertDialog() {
+    private void showAlertDialog() {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
     alertDialog.setMessage("Send without comments?");
     alertDialog.setCancelable(false);
