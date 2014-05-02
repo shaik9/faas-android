@@ -5,17 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class Faas extends Activity {
+public class FAAS extends Activity {
   static String apiKey;
   static String channelName;
 
   public static void register(String channelName, String apiKey) {
-    Faas.apiKey = apiKey;
-    Faas.channelName = channelName;
+    FAAS.apiKey = apiKey;
+    FAAS.channelName = channelName;
   }
 
   public static void showFeedbackForm(Context context) {
-    Intent intent = new Intent(context, Faas.class);
+    Intent intent = new Intent(context, FAAS.class);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     context.startActivity(intent);
   }

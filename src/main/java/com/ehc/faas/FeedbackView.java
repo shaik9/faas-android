@@ -249,10 +249,6 @@ public class FeedbackView extends ScrollView {
     return new OnClickListener() {
       @Override
       public void onClick(View view) {
-        if (Faas.apiKey == null || Faas.channelName == null || Faas.apiKey.equals("") || Faas.channelName.equals("")) {
-          showWarningMessage();
-          return;
-        }
         if (!suggestionEditText.getText().toString().isEmpty()) {
           comment = suggestionEditText.getText().toString();
         }
@@ -295,25 +291,13 @@ public class FeedbackView extends ScrollView {
     };
   }
 
-  private void showWarningMessage() {
-    AlertDialog.Builder warningDialog = new AlertDialog.Builder(context);
-    warningDialog.setMessage("Sorry! Couldn't find Api-key or Channel ");
-    warningDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int which) {
-        dialog.cancel();
-      }
-    });
-    warningDialog.show();
-  }
-
-  private void showAlertDialog() {
+    private void showAlertDialog() {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
     alertDialog.setMessage("Send without comments?");
     alertDialog.setCancelable(false);
     alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int which) {
         new FeedbackAsyncTask().execute();
-        ((Activity) context).finish();
       }
     });
     alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -352,7 +336,7 @@ public class FeedbackView extends ScrollView {
     nameValuePair.add(new BasicNameValuePair("feedback_type", feedbackType));
     nameValuePair.add(new BasicNameValuePair("comments", comment));
     nameValuePair.add(new BasicNameValuePair("rating", rating));
-    nameValuePair.add(new BasicNameValuePair("api_key", Faas.apiKey));
+    nameValuePair.add(new BasicNameValuePair("api_key", FAAS.apiKey));
     try {
       httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
     } catch (UnsupportedEncodingException e) {
@@ -363,8 +347,7 @@ public class FeedbackView extends ScrollView {
   }
 
   private String getUrl() {
-    String channelName = Faas.channelName.trim().replaceAll(" ", "-");
-    String url = "http://staging.faas.in/channels/" + channelName + "/feedback";
+    String url = "http://www.faas.in/channels/" + FAAS.channelName + "/feedback";
     return url;
   }
 
