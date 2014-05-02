@@ -13,6 +13,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".FAAS"/>
+        <activity android:name=".Faas"/>
     </application>
 </manifest>
