@@ -62,6 +62,7 @@ public class FeedbackView extends ScrollView {
   private void attachWidgets() {
     container.addView(radioGroup, 0);
     container.addView(ratingBar, 1);
+    container.setFocusableInTouchMode(true);
     container.addView(suggestionEditText, 2);
     container.addView(getLinearLayout(includeDevice, deviceInfoTextView), 3);
     container.addView(getButtonGroup(), 4);
@@ -140,7 +141,7 @@ public class FeedbackView extends ScrollView {
     params.setMargins(16, 8, 16, 8);
     editText.setLayoutParams(params);
     editText.setTextColor(Color.BLACK);
-    editText.setHint("Comments");
+    editText.setHint("Suggestion");
     editText.setGravity(Gravity.START);
     GradientDrawable gradientDrawable = new
         GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{Color.WHITE, Color.WHITE});
@@ -291,13 +292,14 @@ public class FeedbackView extends ScrollView {
     };
   }
 
-    private void showAlertDialog() {
+  private void showAlertDialog() {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
     alertDialog.setMessage("Send without comments?");
     alertDialog.setCancelable(false);
     alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int which) {
         new FeedbackAsyncTask().execute();
+        ((Activity) context).finish();
       }
     });
     alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
