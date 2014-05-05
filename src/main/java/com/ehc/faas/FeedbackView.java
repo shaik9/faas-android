@@ -49,6 +49,8 @@ public class FeedbackView extends ScrollView {
   private String response;
   private int responseCode;
   private LinearLayout container;
+  EditText editText;
+  RadioButton radioButton;
 
 
   public FeedbackView(Context context) {
@@ -135,13 +137,13 @@ public class FeedbackView extends ScrollView {
   }
 
   private EditText createEditText() {
-    EditText editText = new EditText(context);
+    editText = new EditText(context);
     LinearLayout.LayoutParams params = new
         LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, (int) ((getScreenDimensions().y) * 0.5f));
     params.setMargins(16, 8, 16, 8);
     editText.setLayoutParams(params);
-    editText.setTextColor(Color.BLACK);
     editText.setHint("Suggestion");
+    editText.setTextColor(Color.BLACK);
     editText.setGravity(Gravity.START);
     GradientDrawable gradientDrawable = new
         GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{Color.WHITE, Color.WHITE});
@@ -186,10 +188,16 @@ public class FeedbackView extends ScrollView {
     radioGroup.check(suggestionButton.getId());
   }
 
-  private RadioButton createRadioButton(String text) {
-    RadioButton radioButton = new RadioButton(context);
+  private RadioButton createRadioButton(final String text) {
+    radioButton = new RadioButton(context);
     radioButton.setTextSize(16);
     radioButton.setText(text);
+    radioButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        setHintText(text);
+      }
+    });
     return radioButton;
   }
 
@@ -290,6 +298,14 @@ public class FeedbackView extends ScrollView {
         clearText();
       }
     };
+  }
+
+  private void setHintText(String text) {
+    if (text.equals("Suggestion")) {
+      editText.setHint("Suggestion");
+    } else {
+      editText.setHint("Report");
+    }
   }
 
   private void showAlertDialog() {
