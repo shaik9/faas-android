@@ -5,7 +5,7 @@
 
     <groupId>com.github.ehc.tools</groupId>
     <artifactId>faas</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>Faas</name>
     <description>This is an android library project to integrate Feedback service.</description>

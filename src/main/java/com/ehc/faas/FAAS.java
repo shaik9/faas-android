@@ -3,11 +3,21 @@ package com.ehc.faas;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 public class FAAS extends Activity {
   static String apiKey;
   static String channelName;
+  static Drawable icon = null;
+
+  public static Drawable getIcon() {
+    return icon;
+  }
+
+  public static void setActionBarIcon(Drawable icon) {
+    FAAS.icon = icon;
+  }
 
   public static void register(String channelName, String apiKey) {
     FAAS.apiKey = apiKey;
@@ -25,5 +35,8 @@ public class FAAS extends Activity {
     super.onCreate(savedInstanceState);
     FeedbackView feedbackView = new FeedbackView(this);
     setContentView(feedbackView);
+    if (icon != null) {
+      getActionBar().setIcon(icon);
+    }
   }
 }
